@@ -1,4 +1,4 @@
-use winsafe::{prelude::*, self as w, co, msg};
+use winsafe::{prelude::*, self as w, co};
 
 use crate::patch;
 use crate::util;
@@ -47,7 +47,6 @@ impl WndMain {
 			let clock = util::Timer::start();
 			match patch::patch_font(&self2.txt_path.text()) {
 				Err(e) => self2.wnd.hwnd().TaskDialog(
-					None,
 					Some("Patching failed"),
 					None,
 					Some(&e.to_string()),
@@ -55,7 +54,6 @@ impl WndMain {
 					w::IconRes::Error,
 				)?,
 				Ok(_) => self2.wnd.hwnd().TaskDialog(
-					None,
 					Some("Operation successful"),
 					None,
 					Some(&format!("Font successfully patched in {:.2}ms.", clock.now_ms())),
@@ -76,7 +74,6 @@ impl WndMain {
 			let clock = util::Timer::start();
 			match patch::patch_icon(&self2.txt_path.text()) {
 				Err(e) => self2.wnd.hwnd().TaskDialog(
-					None,
 					Some("Patching failed"),
 					None,
 					Some(&e.to_string()),
@@ -84,7 +81,6 @@ impl WndMain {
 					w::IconRes::Error,
 				)?,
 				Ok(_) => self2.wnd.hwnd().TaskDialog(
-					None,
 					Some("Operation successful"),
 					None,
 					Some(&format!("Suggestion box icon successfully patched in {:.2}ms.", clock.now_ms())),

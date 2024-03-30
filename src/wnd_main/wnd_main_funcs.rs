@@ -33,7 +33,6 @@ impl WndMain {
 		}
 
 		let clicked_btn = self.wnd.hwnd().TaskDialog(
-			None,
 			Some("VS Code appears to be running"),
 			None,
 			Some("It's recommended to close VS Code before patching.\n\
