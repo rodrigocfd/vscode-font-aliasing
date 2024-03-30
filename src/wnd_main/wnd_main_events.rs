@@ -8,18 +8,15 @@ impl WndMain {
 	pub(super) fn _events(&self) {
 
 		let self2 = self.clone();
-		self.wnd.on().wm_command_accel_menu(co::DLGID::CANCEL.into(), move || {
-			self2.wnd.hwnd().SendMessage(msg::wm::Close {});
+		self.wnd.on().wm_command_accel_menu(co::DLGID::CANCEL, move || {
+			self2.wnd.close(); // close on Esc
 			Ok(())
 		});
 
 		let self2 = self.clone();
 		self.btn_choose.on().bn_clicked(move || {
 			let fileo = w::CoCreateInstance::<w::IFileOpenDialog>(
-				&co::CLSID::FileOpenDialog,
-				None,
-				co::CLSCTX::INPROC_SERVER,
-			)?;
+				&co::CLSID::FileOpenDialog, None, co::CLSCTX::INPROC_SERVER)?;
 
 			fileo.SetOptions(
 				fileo.GetOptions()?
