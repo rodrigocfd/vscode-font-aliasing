@@ -40,56 +40,70 @@ impl WndMain {
 
 		let self2 = self.clone();
 		self.btn_patch_font.on().bn_clicked(move || {
-			if !self2._ok_if_running()? {
-				return Ok(())
+			if self2.prompt_continue_if_running()? {
+				let clock = util::Timer::start();
+				self2.msg_after_process(
+					patch::patch_font(&self2.txt_path.text()),
+					&format!("Font successfully patched in {:.2}ms.", clock.now_ms()),
+				)?;
 			}
-
-			let clock = util::Timer::start();
-			match patch::patch_font(&self2.txt_path.text()) {
-				Err(e) => self2.wnd.hwnd().TaskDialog(
-					Some("Patching failed"),
-					None,
-					Some(&e.to_string()),
-					co::TDCBF::OK,
-					w::IconRes::Error,
-				)?,
-				Ok(_) => self2.wnd.hwnd().TaskDialog(
-					Some("Operation successful"),
-					None,
-					Some(&format!("Font successfully patched in {:.2}ms.", clock.now_ms())),
-					co::TDCBF::OK,
-					w::IconRes::Info,
-				)?,
-			};
-
 			Ok(())
 		});
 
 		let self2 = self.clone();
 		self.btn_patch_icon.on().bn_clicked(move || {
-			if !self2._ok_if_running()? {
-				return Ok(())
+			if self2.prompt_continue_if_running()? {
+				let clock = util::Timer::start();
+				self2.msg_after_process(
+					patch::patch_icon(&self2.txt_path.text()),
+					&format!("Suggestion box icon successfully patched in {:.2}ms.", clock.now_ms()),
+				)?;
 			}
-
-			let clock = util::Timer::start();
-			match patch::patch_icon(&self2.txt_path.text()) {
-				Err(e) => self2.wnd.hwnd().TaskDialog(
-					Some("Patching failed"),
-					None,
-					Some(&e.to_string()),
-					co::TDCBF::OK,
-					w::IconRes::Error,
-				)?,
-				Ok(_) => self2.wnd.hwnd().TaskDialog(
-					Some("Operation successful"),
-					None,
-					Some(&format!("Suggestion box icon successfully patched in {:.2}ms.", clock.now_ms())),
-					co::TDCBF::OK,
-					w::IconRes::Info,
-				)?,
-			};
-
 			Ok(())
 		});
+	}
+
+	fn prompt_continue_if_running(&self) -> w::AnyResult<bool> {
+		if !patch::is_vscode_running()? {
+			return Ok(true) // it's not even running
+		}
+
+		let (clicked_btn, _, _) = w::TaskDialogIndirect(&w::TASKDIALOGCONFIG {
+			hwnd_parent: Some(self.wnd.hwnd()),
+			window_title: Some("VS Code appears to be running"),
+			content: Some("It's recommended to close VS Code before patching.\n\
+				If you run the patch now, you must reload VS Code.\n\n\
+				Patch anyway?"),
+			main_icon: w::IconIdTd::Td(co::TD_ICON::WARNING),
+			common_buttons: co::TDCBF::OK | co::TDCBF::CANCEL,
+			flags: co::TDF::ALLOW_DIALOG_CANCELLATION | co::TDF::POSITION_RELATIVE_TO_WINDOW,
+			..Default::default()
+		})?;
+
+		Ok(clicked_btn == co::DLGID::OK)
+	}
+
+	fn msg_after_process(&self, res: w::AnyResult<()>, txt_success: &str) -> w::AnyResult<()> {
+		match res {
+			Err(e) => w::TaskDialogIndirect(&w::TASKDIALOGCONFIG {
+				hwnd_parent: Some(self.wnd.hwnd()),
+				window_title: Some("Patching failed"),
+				content: Some(&e.to_string()),
+				main_icon: w::IconIdTd::Td(co::TD_ICON::ERROR),
+				common_buttons: co::TDCBF::OK,
+				flags: co::TDF::ALLOW_DIALOG_CANCELLATION | co::TDF::POSITION_RELATIVE_TO_WINDOW,
+				..Default::default()
+			})?,
+			Ok(_) => w::TaskDialogIndirect(&w::TASKDIALOGCONFIG {
+				hwnd_parent: Some(self.wnd.hwnd()),
+				window_title: Some("Operation successful"),
+				content: Some(txt_success),
+				main_icon: w::IconIdTd::Td(co::TD_ICON::INFORMATION),
+				common_buttons: co::TDCBF::OK,
+				flags: co::TDF::ALLOW_DIALOG_CANCELLATION | co::TDF::POSITION_RELATIVE_TO_WINDOW,
+				..Default::default()
+			})?,
+		};
+		Ok(())
 	}
 }

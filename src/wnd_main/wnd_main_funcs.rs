@@ -26,22 +26,4 @@ impl WndMain {
 	pub fn run(&self) -> w::AnyResult<i32> {
 		self.wnd.run_main(None)
 	}
-
-	pub(super) fn _ok_if_running(&self) -> w::AnyResult<bool> {
-		if !patch::is_vscode_running()? {
-			return Ok(true) // it's not even running
-		}
-
-		let clicked_btn = self.wnd.hwnd().TaskDialog(
-			Some("VS Code appears to be running"),
-			None,
-			Some("It's recommended to close VS Code before patching.\n\
-				If you run the patch now, you must reload VS Code.\n\n\
-				Patch anyway?"),
-			co::TDCBF::OK | co::TDCBF::CANCEL,
-			w::IconRes::Warn,
-		)?;
-
-		Ok(clicked_btn == co::DLGID::OK)
-	}
 }
