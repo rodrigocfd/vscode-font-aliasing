@@ -1,8 +1,8 @@
 use winsafe::gui;
 
 mod ids;
+mod wnd_main_ctor;
 mod wnd_main_events;
-mod wnd_main_funcs;
 
 #[allow(dead_code)]
 #[derive(Clone)]

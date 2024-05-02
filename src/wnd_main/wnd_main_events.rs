@@ -5,8 +5,7 @@ use crate::util;
 use super::WndMain;
 
 impl WndMain {
-	pub(super) fn _events(&self) {
-
+	pub(super) fn events(&self) {
 		let self2 = self.clone();
 		self.wnd.on().wm_command_accel_menu(co::DLGID::CANCEL, move || {
 			self2.wnd.close(); // close on Esc

@@ -1,6 +1,5 @@
-use winsafe::{prelude::*, self as w, co, gui};
+use winsafe::{self as w, gui};
 
-use crate::patch;
 use super::{ids, WndMain};
 
 impl WndMain {
@@ -19,7 +18,7 @@ impl WndMain {
 			lbl_path, txt_path, btn_choose,
 			btn_patch_font, btn_patch_icon,
 		};
-		self2._events();
+		self2.events();
 		self2
 	}
 
