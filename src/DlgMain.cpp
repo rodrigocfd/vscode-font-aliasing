@@ -37,14 +37,21 @@ INT_PTR DlgMain::onInitDialog()
 INT_PTR DlgMain::onBtnBrowse()
 {
 	std::optional<std::wstring> maybeFolder = this->folderOpen();
-	if (maybeFolder.has_value())
+	if (maybeFolder.has_value()) {
 		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
-	lib::NativeControl{this, BTN_PATCH}.focus();
+		lib::NativeControl{this, BTN_PATCH}.focus();
+	}
 	return TRUE;
 }
 
 INT_PTR DlgMain::onBtnPatch()
 {
+	std::wstring vscodePath = lib::NativeControl{this, TXT_PATH}.text();
+	if (!lib::path::exists(vscodePath) || !lib::path::isDir(vscodePath)) {
+		this->msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		return TRUE;
+	}
+
 	if (patch::isVscodeRunning()
 			&& this->msgBox(L"VS Code appears to be running", L"",
 				L"It's recommended to close VS Code before patching.\n"
@@ -54,6 +61,6 @@ INT_PTR DlgMain::onBtnPatch()
 		return TRUE;
 	}
 
-
+	patch::doPatch(vscodePath);
 	return TRUE;
 }

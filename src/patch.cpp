@@ -41,3 +41,15 @@ bool patch::isVscodeRunning()
 		}
 	}
 }
+
+void patch::doPatch(std::wstring_view vscodePath)
+{
+	std::wstring cssPath{vscodePath};
+	cssPath.append(L"\\");
+	cssPath.append(L"resources\\app\\out\\vs\\workbench\\workbench.desktop.main.css");
+
+	std::wstring cssContents = lib::FileMapped::ReadAllStr(cssPath);
+
+
+
+}

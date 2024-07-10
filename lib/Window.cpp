@@ -22,6 +22,7 @@ std::wstring Window::text() const
 	} else {
 		std::wstring buf(len + 1, L'\0');
 		GetWindowTextW(hWnd(), buf.data(), len + 1);
+		buf.resize(len);
 		return buf;
 	}
 }

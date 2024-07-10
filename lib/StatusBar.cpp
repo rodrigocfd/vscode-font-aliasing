@@ -2,6 +2,7 @@
 #include <Windows.h>
 #include <CommCtrl.h>
 #include "StatusBar.h"
+#include "str.h"
 using namespace lib;
 
 const StatusBar::Part& StatusBar::Part::setIcon(HICON hIcon) const
@@ -24,6 +25,7 @@ std::wstring StatusBar::Part::text() const
 
 	std::wstring buf(len + 1, L'\0');
 	SendMessageW(_hSb, SB_GETTEXTW, _index, reinterpret_cast<LPARAM>(buf.data()));
+	str::trimNulls(buf);
 	return buf;
 }
 
