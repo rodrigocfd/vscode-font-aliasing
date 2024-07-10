@@ -8,7 +8,7 @@
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
 {
 	DlgMain d;
-	return d.runMain(hInst, DLG_MAIN, cmdShow);
+	return d.runMain(hInst, DLG_MAIN, cmdShow, ICO_VSCGREEN);
 }
 
 INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
