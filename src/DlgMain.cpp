@@ -3,7 +3,6 @@
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
 {
-	//lib::Com comLib;
 	DlgMain d;
 	return d.runMain(hInst, DLG_MAIN, cmdShow);
 }
@@ -11,6 +10,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In
 INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
 {
 	switch (uMsg) {
+		case WM_INITDIALOG: return onInitDialog();
 		case WM_COMMAND:
 			switch (LOWORD(wp)) {
 				case BTN_BROWSE: return onBtnBrowse();
@@ -24,8 +24,19 @@ INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
 	}
 }
 
+INT_PTR DlgMain::onInitDialog()
+{
+	lib::CheckRadio{this, CHK_PATCH_FONT}.check();
+	lib::CheckRadio{this, CHK_PATCH_ICON}.check();
+	return TRUE;
+}
+
 INT_PTR DlgMain::onBtnBrowse()
 {
+	std::optional<std::wstring> maybeFolder = this->folderOpen();
+	if (maybeFolder.has_value())
+		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
+	lib::NativeControl{this, BTN_PATCH}.focus();
 	return TRUE;
 }
 

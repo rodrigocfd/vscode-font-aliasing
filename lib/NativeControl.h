@@ -17,6 +17,8 @@ public:
 	constexpr explicit NativeControl(HWND hCtrl) : Window{hCtrl} { }
 	NativeControl(HWND hParent, WORD ctrlId);
 	NativeControl(Window* parent, WORD ctrlId) : NativeControl{parent->hWnd(), ctrlId} { }
+
+	void focus() const;
 };
 
 }
