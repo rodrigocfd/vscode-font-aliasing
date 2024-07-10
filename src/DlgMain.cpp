@@ -64,10 +64,10 @@ INT_PTR DlgMain::onBtnPatch()
 	}
 
 	try {
-		patch::doPatch(installPath,
+		patch::Res res = patch::doPatch(installPath,
 			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
 			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
-		this->msgBox(L"Patching done", L"", L"Patching complete.", TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
+		this->msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
 	} catch (const std::runtime_error& err) {
 		this->msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}

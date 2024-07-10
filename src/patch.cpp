@@ -2,6 +2,7 @@
 #include <system_error>
 #include <vector>
 #include <Windows.h>
+#include <CommCtrl.h>
 #include <TlHelp32.h>
 #include "../lib/lib.h"
 #include "patch.h"
@@ -89,33 +90,43 @@ static std::wstring _patchIcon(std::wstring_view cssContents)
 	return newContents;
 }
 
-void patch::doPatch(std::wstring_view installPath, bool doFont, bool doIcon)
+patch::Res patch::doPatch(std::wstring_view installPath, bool doFont, bool doIcon)
 {
 	std::wstring cssPath{installPath};
 	cssPath.append(L"\\");
 	cssPath.append(L"resources\\app\\out\\vs\\workbench\\workbench.desktop.main.css");
 
+	bool fontOk = true, iconOk = true;
+	Res res = {.fontMsg = L"Font unpatched.", .iconMsg = L"Suggestion icon unpatched."};
+
 	std::wstring cssContents = lib::FileMapped::ReadAllStr(cssPath);
-	std::vector<std::wstring> errors;
 	if (doFont) {
 		try {
 			cssContents = _patchFont(cssContents);
+			res.fontMsg = L"Font patched successfully.";
 		} catch (const std::runtime_error& err) {
-			errors.emplace_back(lib::str::toWide(err.what()));
+			fontOk = false;
+			res.fontMsg = lib::str::toWide(err.what());
 		}
 	}
 	if (doIcon) {
 		try {
 			cssContents = _patchIcon(cssContents);
+			res.iconMsg = L"Suggestion icon patched sucessfully.";
 		} catch (const std::runtime_error& err) {
-			errors.emplace_back(lib::str::toWide(err.what()));
+			iconOk = false;
+			res.iconMsg = lib::str::toWide(err.what());
 		}
 	}
 
-	if (!errors.empty()) { // accumulate all exceptions in a single string, and throw it
-		std::wstring finalMsg = lib::str::join(errors, L"\n");
-		throw std::runtime_error(lib::str::toAnsi(finalMsg));
+	if (!fontOk && !iconOk) {
+		res.tdIcon = TD_ERROR_ICON;
+	} else if (!fontOk || !iconOk) {
+		res.tdIcon = TD_WARNING_ICON;
+	} else {
+		res.tdIcon = TD_INFORMATION_ICON;
 	}
 
 	lib::File::EraseAndWriteStr(cssPath, cssContents);
+	return res;
 }
