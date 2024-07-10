@@ -1,4 +1,7 @@
+#include <Windows.h>
+#include <CommCtrl.h>
 #include "DlgMain.h"
+#include "patch.h"
 #include "../res/resource.h"
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
@@ -42,5 +45,15 @@ INT_PTR DlgMain::onBtnBrowse()
 
 INT_PTR DlgMain::onBtnPatch()
 {
+	if (patch::isVscodeRunning()
+			&& this->msgBox(L"VS Code appears to be running", L"",
+				L"It's recommended to close VS Code before patching.\n"
+				L"If you run the patch now, you must reload VS Code.\n\n"
+				L"Patch anyway?",
+			TDCBF_OK_BUTTON | TDCBF_CANCEL_BUTTON, TD_WARNING_ICON) == IDCANCEL) {
+		return TRUE;
+	}
+
+
 	return TRUE;
 }

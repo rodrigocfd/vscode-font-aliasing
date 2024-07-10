@@ -178,6 +178,7 @@
     <ClInclude Include="lib\Window.h" />
     <ClInclude Include="res\resource.h" />
     <ClInclude Include="src\DlgMain.h" />
+    <ClInclude Include="src\patch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lib\CheckRadio.cpp" />
@@ -200,6 +201,7 @@
     <ClCompile Include="lib\str.cpp" />
     <ClCompile Include="lib\Window.cpp" />
     <ClCompile Include="src\DlgMain.cpp" />
+    <ClCompile Include="src\patch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\vscode-font-patch.rc" />

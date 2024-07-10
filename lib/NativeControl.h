@@ -18,6 +18,7 @@ public:
 	NativeControl(HWND hParent, WORD ctrlId);
 	NativeControl(Window* parent, WORD ctrlId) : NativeControl{parent->hWnd(), ctrlId} { }
 
+	// Sends WM_NEXTDLGCTL.
 	void focus() const;
 };
 
