@@ -68,7 +68,7 @@ INT_PTR DlgMain::onBtnPatch()
 			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
 			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
 	} catch (const std::runtime_error& err) {
-		this->msgBox(L"Patching error", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		this->msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}
 	return TRUE;
 }

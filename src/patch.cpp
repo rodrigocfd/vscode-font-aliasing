@@ -69,8 +69,24 @@ static std::wstring _patchFont(std::wstring_view cssContents)
 
 static std::wstring _patchIcon(std::wstring_view cssContents)
 {
-	throw std::runtime_error("Xamba xamba.");
-	return {};
+	LPCWSTR NATURAL = L".monaco-editor .suggest-widget .monaco-list .monaco-list-row.focused .codicon{color:var(--vscode-editorSuggestWidget-selectedIconForeground)}";
+	LPCWSTR PATCHED = L" /*.monaco-editor .suggest-widget .monaco-list .monaco-list-row.focused .codicon{color:var(--vscode-editorSuggestWidget-selectedIconForeground)}*/ ";
+
+	if (lib::str::contains(cssContents, PATCHED)) {
+		throw std::runtime_error("Suggestion box icon already patched.");
+	}
+
+	std::optional<size_t> maybeIdx = lib::str::position(cssContents, NATURAL);
+	if (!maybeIdx.has_value()) [[unlikely]] {
+		throw std::runtime_error("Suggestion box icon CSS entry not found.");
+	}
+	size_t idx = maybeIdx.value();
+
+	auto newContents = lib::str::newReserved(cssContents.length() + lstrlenW(PATCHED) - lstrlenW(NATURAL));
+	newContents.append(cssContents.begin(), cssContents.begin() + idx); // all code up to part
+	newContents.append(PATCHED);
+	newContents.append(cssContents.begin() + idx + lstrlenW(NATURAL), cssContents.end()); // rest of file
+	return newContents;
 }
 
 void patch::doPatch(std::wstring_view installPath, bool doFont, bool doIcon)
@@ -101,6 +117,5 @@ void patch::doPatch(std::wstring_view installPath, bool doFont, bool doIcon)
 		throw std::runtime_error(lib::str::toAnsi(finalMsg));
 	}
 
-
-
+	lib::File::EraseAndWriteStr(cssPath, cssContents);
 }
