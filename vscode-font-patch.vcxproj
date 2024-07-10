@@ -209,6 +209,9 @@
   <ItemGroup>
     <Manifest Include="res\win10.exe.manifest" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\vscode-green.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
