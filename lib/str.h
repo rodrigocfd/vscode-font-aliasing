@@ -1,4 +1,5 @@
 #pragma once
+#include <optional>
 #include <span>
 #include <string>
 #include <vector>
@@ -8,11 +9,15 @@ namespace lib::str {
 
 constexpr size_t SSO_LEN = std::string{}.capacity();
 
-[[nodiscard]] bool contains(std::wstring_view s, std::wstring_view what);
+[[nodiscard]] bool contains(std::wstring_view s, std::wstring_view what, size_t off = 0);
 [[nodiscard]] bool endsWith(std::wstring_view s, std::wstring_view theEnd);
 [[nodiscard]] bool endsWithI(std::wstring_view s, std::wstring_view theEnd);
 [[nodiscard]] LPCWSTR guessLineBreak(std::wstring_view s);
+[[nodiscard]] std::wstring join(std::span<std::wstring> all, std::wstring_view separator = L"");
+[[nodiscard]] std::wstring newReserved(size_t numReserve);
 [[nodiscard]] std::wstring parse(std::span<BYTE> src);
+[[nodiscard]] std::optional<size_t> position(std::wstring_view s, std::wstring_view what, size_t off = 0);
+[[nodiscard]] std::optional<size_t> positionRev(std::wstring_view s, std::wstring_view what, size_t off = 0);
 void removeDiacritics(std::wstring& s);
 [[nodiscard]] std::vector<std::wstring> split(std::wstring_view s, std::wstring_view delimiter);
 [[nodiscard]] std::vector<std::wstring> splitLines(std::wstring_view s);

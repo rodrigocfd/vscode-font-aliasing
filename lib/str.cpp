@@ -4,9 +4,9 @@
 #include "enc.h"
 #include "str.h"
 
-bool lib::str::contains(std::wstring_view s, std::wstring_view what)
+bool lib::str::contains(std::wstring_view s, std::wstring_view what, size_t off)
 {
-	return s.find(what) != std::wstring::npos;
+	return s.find(what, off) != std::wstring::npos;
 }
 
 bool lib::str::endsWith(std::wstring_view s, std::wstring_view theEnd)
@@ -31,6 +31,40 @@ LPCWSTR lib::str::guessLineBreak(std::wstring_view s)
 		}
 	}
 	return nullptr; // unknown
+}
+
+std::wstring lib::str::join(std::span<std::wstring> all, std::wstring_view separator)
+{
+	std::wstring buf;
+	bool first = true;
+	for (const auto& s : all) {
+		if (first) {
+			first = false;
+		} else {
+			buf.append(separator);
+		}
+		buf.append(s);
+	}
+	return buf;
+}
+
+std::wstring lib::str::newReserved(size_t numReserve)
+{
+	std::wstring s;
+	s.reserve(numReserve);
+	return s;
+}
+
+std::optional<size_t> lib::str::position(std::wstring_view s, std::wstring_view what, size_t off)
+{
+	size_t pos = s.find(what, off);
+	return pos == std::wstring::npos ? std::nullopt : std::optional{pos};
+}
+
+std::optional<size_t> lib::str::positionRev(std::wstring_view s, std::wstring_view what, size_t off)
+{
+	size_t pos = s.rfind(what, off);
+	return pos == std::wstring::npos ? std::nullopt : std::optional{pos};
 }
 
 static std::wstring _parseAnsi(std::span<BYTE> src)

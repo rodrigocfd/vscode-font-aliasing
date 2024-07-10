@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <Windows.h>
 #include <CommCtrl.h>
 #include "DlgMain.h"
@@ -46,9 +47,10 @@ INT_PTR DlgMain::onBtnBrowse()
 
 INT_PTR DlgMain::onBtnPatch()
 {
-	std::wstring vscodePath = lib::NativeControl{this, TXT_PATH}.text();
-	if (!lib::path::exists(vscodePath) || !lib::path::isDir(vscodePath)) {
+	std::wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
+	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
 		this->msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		lib::NativeControl{this, BTN_BROWSE}.focus();
 		return TRUE;
 	}
 
@@ -61,6 +63,12 @@ INT_PTR DlgMain::onBtnPatch()
 		return TRUE;
 	}
 
-	patch::doPatch(vscodePath);
+	try {
+		patch::doPatch(installPath,
+			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
+			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
+	} catch (const std::runtime_error& err) {
+		this->msgBox(L"Patching error", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
+	}
 	return TRUE;
 }
