@@ -14,6 +14,7 @@ public:
 private:
 	INT_PTR dlgProc(UINT uMsg, WPARAM wp, LPARAM lp) override;
 	INT_PTR onInitDialog();
+	INT_PTR onChkChange();
 	INT_PTR onBtnBrowse();
 	INT_PTR onBtnPatch();
 };

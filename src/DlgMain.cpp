@@ -17,10 +17,12 @@ INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
 		case WM_INITDIALOG: return onInitDialog();
 		case WM_COMMAND:
 			switch (LOWORD(wp)) {
-				case BTN_BROWSE: return onBtnBrowse();
-				case BTN_PATCH:  return onBtnPatch();
-				case IDCANCEL:   PostMessage(hWnd(), WM_CLOSE, 0, 0); return TRUE;
-				default:         return FALSE;
+				case CHK_PATCH_FONT:
+				case CHK_PATCH_ICON: return onChkChange();
+				case BTN_BROWSE:     return onBtnBrowse();
+				case BTN_PATCH:      return onBtnPatch();
+				case IDCANCEL:       PostMessage(hWnd(), WM_CLOSE, 0, 0); return TRUE;
+				default:             return FALSE;
 			}
 		case WM_CLOSE:     DestroyWindow(hWnd()); return TRUE;
 		case WM_NCDESTROY: PostQuitMessage(0); return TRUE;
@@ -32,6 +34,14 @@ INT_PTR DlgMain::onInitDialog()
 {
 	lib::CheckRadio{this, CHK_PATCH_FONT}.check();
 	lib::CheckRadio{this, CHK_PATCH_ICON}.check();
+	return TRUE;
+}
+
+INT_PTR DlgMain::onChkChange()
+{
+	EnableWindow(GetDlgItem(hWnd(), BTN_PATCH),
+		lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked()
+		|| lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
 	return TRUE;
 }
 
