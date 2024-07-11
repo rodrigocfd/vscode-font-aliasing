@@ -112,7 +112,7 @@ patch::Res patch::doPatch(std::wstring_view installPath, bool doFont, bool doIco
 	if (doIcon) {
 		try {
 			cssContents = _patchIcon(cssContents);
-			res.iconMsg = L"Suggestion icon patched sucessfully.";
+			res.iconMsg = L"Suggestion icon patched successfully.";
 		} catch (const std::runtime_error& err) {
 			iconOk = false;
 			res.iconMsg = lib::str::toWide(err.what());

@@ -18,4 +18,5 @@
 #include "StatusBar.h"
 #include "str.h"
 #include "vec.h"
+#include "VersionInfo.h"
 #include "Window.h"

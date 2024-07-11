@@ -90,6 +90,9 @@
     <ClInclude Include="src\patch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="lib\VersionInfo.h">
+      <Filter>Library Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DlgMain.cpp">
@@ -154,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="src\patch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\VersionInfo.cpp">
+      <Filter>Library Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -175,6 +175,7 @@
     <ClInclude Include="lib\StatusBar.h" />
     <ClInclude Include="lib\str.h" />
     <ClInclude Include="lib\vec.h" />
+    <ClInclude Include="lib\VersionInfo.h" />
     <ClInclude Include="lib\Window.h" />
     <ClInclude Include="res\resource.h" />
     <ClInclude Include="src\DlgMain.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="lib\path.cpp" />
     <ClCompile Include="lib\StatusBar.cpp" />
     <ClCompile Include="lib\str.cpp" />
+    <ClCompile Include="lib\VersionInfo.cpp" />
     <ClCompile Include="lib\Window.cpp" />
     <ClCompile Include="src\DlgMain.cpp" />
     <ClCompile Include="src\patch.cpp" />
