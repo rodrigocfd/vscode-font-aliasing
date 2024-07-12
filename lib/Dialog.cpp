@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <system_error>
 #include <Windows.h>
 #include <CommCtrl.h>
 #include <ShObjIdl.h>
@@ -62,14 +63,16 @@ static std::vector<COMDLG_FILTERSPEC> _makeFilters(
 
 static std::wstring _shellItemPath(const ComPtr<IShellItem>& shi)
 {
-	PWSTR ptrPath = nullptr;
-	shi->GetDisplayName(SIGDN_FILESYSPATH, &ptrPath);
+	LPWSTR ptrPath = nullptr;
+	if (HRESULT hr = shi->GetDisplayName(SIGDN_FILESYSPATH, &ptrPath); FAILED(hr)) [[unlikely]] {
+		throw std::system_error(hr, std::system_category(), "IShellItem::GetDisplayName failed");
+	}
 	std::wstring strPath{(ptrPath == nullptr ? L"" : ptrPath)};
 	CoTaskMemFree(ptrPath);
 	return strPath;
 }
 
-std::optional<std::vector<std::wstring>> Dialog::fileOpenMany(
+std::optional<std::vector<std::wstring>> Dialog::showOpenFiles(
 	std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const
 {
 	std::vector<COMDLG_FILTERSPEC> filters = _makeFilters(namesExts);
@@ -78,7 +81,7 @@ std::optional<std::vector<std::wstring>> Dialog::fileOpenMany(
 	fsd->SetOptions(FOS_FORCEFILESYSTEM | FOS_FILEMUSTEXIST | FOS_ALLOWMULTISELECT);
 	fsd->SetFileTypes(static_cast<int>(filters.size()), filters.data());
 	fsd->SetFileTypeIndex(1);
-	if (fsd->Show(hWnd()) == S_OK) {
+	if (HRESULT hr = fsd->Show(hWnd()); hr == S_OK) {
 		ComPtr<IShellItemArray> shiArr;
 		fsd->GetResults(shiArr.pptr());
 
@@ -97,12 +100,14 @@ std::optional<std::vector<std::wstring>> Dialog::fileOpenMany(
 			return lstrcmpiW(a.c_str(), b.c_str()) < 1;
 		});
 		return strPaths;
-	} else {
+	} else if (hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 		return std::nullopt;
+	} else [[unlikely]] {
+		throw std::system_error(hr, std::system_category(), "IModalWindow::Show failed");
 	}
 }
 
-std::optional<std::wstring> Dialog::_fileOpenSave(bool isOpen, bool isFolder,
+std::optional<std::wstring> Dialog::_showOpenSave(bool isOpen, bool isFolder,
 	std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const
 {
 	std::vector<COMDLG_FILTERSPEC> filters = _makeFilters(namesExts);
@@ -113,12 +118,14 @@ std::optional<std::wstring> Dialog::_fileOpenSave(bool isOpen, bool isFolder,
 		fd->SetFileTypes(static_cast<int>(filters.size()), filters.data());
 		fd->SetFileTypeIndex(1);
 	}
-	if (fd->Show(hWnd()) == S_OK) {
+	if (HRESULT hr = fd->Show(hWnd()); hr == S_OK) {
 		ComPtr<IShellItem> shi;
 		fd->GetResult(shi.pptr());
 		return _shellItemPath(shi);
-	} else {
+	} else if (hr == HRESULT_FROM_WIN32(ERROR_CANCELLED)) {
 		return std::nullopt;
+	} else [[unlikely]] {
+		throw std::system_error(hr, std::system_category(), "IModalWindow::Show failed");
 	}
 }
 
@@ -137,6 +144,8 @@ int Dialog::msgBox(std::wstring_view title, std::wstring_view mainInstruction,
 	};
 
 	int pnButton = 0;
-	TaskDialogIndirect(&tdc, &pnButton, nullptr, nullptr);
+	if (HRESULT hr = TaskDialogIndirect(&tdc, &pnButton, nullptr, nullptr); FAILED(hr)) [[unlikely]] {
+		throw std::system_error(hr, std::system_category(), "TaskDialogIndirect failed");
+	}
 	return pnButton;
 }

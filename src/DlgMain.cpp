@@ -47,7 +47,7 @@ INT_PTR DlgMain::onChkChange()
 
 INT_PTR DlgMain::onBtnBrowse()
 {
-	std::optional<std::wstring> maybeFolder = this->folderOpen();
+	std::optional<std::wstring> maybeFolder = this->showOpenFolder();
 	if (maybeFolder.has_value()) {
 		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
 		lib::NativeControl{this, BTN_PATCH}.focus();

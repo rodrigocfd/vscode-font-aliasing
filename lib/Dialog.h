@@ -24,11 +24,11 @@ protected:
 	// Calls DragQueryFile() for each file, then DragFinish().
 	[[nodiscard]] std::vector<std::wstring> droppedFiles(HDROP hDrop) const;
 
-	[[nodiscard]] std::optional<std::wstring> fileOpen(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const { return _fileOpenSave(true, false, namesExts); }
-	[[nodiscard]] std::optional<std::vector<std::wstring>> fileOpenMany(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const;
-	[[nodiscard]] std::optional<std::wstring> fileSave(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const { return _fileOpenSave(false, false, namesExts); }
-	[[nodiscard]] std::optional<std::wstring> folderOpen() const { return _fileOpenSave(true, true, {}); }
-	[[nodiscard]] std::optional<std::wstring> _fileOpenSave(bool isOpen, bool isFolder,
+	[[nodiscard]] std::optional<std::wstring> showOpenFile(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const { return _showOpenSave(true, false, namesExts); }
+	[[nodiscard]] std::optional<std::vector<std::wstring>> showOpenFiles(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const;
+	[[nodiscard]] std::optional<std::wstring> showSaveFile(std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const { return _showOpenSave(false, false, namesExts); }
+	[[nodiscard]] std::optional<std::wstring> showOpenFolder() const { return _showOpenSave(true, true, {}); }
+	[[nodiscard]] std::optional<std::wstring> _showOpenSave(bool isOpen, bool isFolder,
 		std::initializer_list<std::pair<std::wstring_view, std::wstring_view>> namesExts) const;
 
 	// Returns IDOK, IDCANCEL, etc.
