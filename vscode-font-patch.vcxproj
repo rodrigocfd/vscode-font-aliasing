@@ -73,18 +73,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>..\wee;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>..\wee;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>..\wee;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>..\wee;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -155,53 +159,57 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="lib\CheckRadio.h" />
-    <ClInclude Include="lib\Com.h" />
-    <ClInclude Include="lib\ComboBox.h" />
-    <ClInclude Include="lib\CustomControl.h" />
-    <ClInclude Include="lib\Dialog.h" />
-    <ClInclude Include="lib\DialogMain.h" />
-    <ClInclude Include="lib\DialogModal.h" />
-    <ClInclude Include="lib\dpi.h" />
-    <ClInclude Include="lib\enc.h" />
-    <ClInclude Include="lib\File.h" />
-    <ClInclude Include="lib\FileMapped.h" />
-    <ClInclude Include="lib\ini.h" />
-    <ClInclude Include="lib\lib.h" />
-    <ClInclude Include="lib\ListView.h" />
-    <ClInclude Include="lib\Menu.h" />
-    <ClInclude Include="lib\NativeControl.h" />
-    <ClInclude Include="lib\path.h" />
-    <ClInclude Include="lib\StatusBar.h" />
-    <ClInclude Include="lib\str.h" />
-    <ClInclude Include="lib\vec.h" />
-    <ClInclude Include="lib\VersionInfo.h" />
-    <ClInclude Include="lib\Window.h" />
+    <ClInclude Include="..\wee\wee\CheckRadio.h" />
+    <ClInclude Include="..\wee\wee\Com.h" />
+    <ClInclude Include="..\wee\wee\ComboBox.h" />
+    <ClInclude Include="..\wee\wee\CustomControl.h" />
+    <ClInclude Include="..\wee\wee\Dialog.h" />
+    <ClInclude Include="..\wee\wee\DialogMain.h" />
+    <ClInclude Include="..\wee\wee\DialogModal.h" />
+    <ClInclude Include="..\wee\wee\dpi.h" />
+    <ClInclude Include="..\wee\wee\enc.h" />
+    <ClInclude Include="..\wee\wee\File.h" />
+    <ClInclude Include="..\wee\wee\FileMapped.h" />
+    <ClInclude Include="..\wee\wee\ImgList.h" />
+    <ClInclude Include="..\wee\wee\ini.h" />
+    <ClInclude Include="..\wee\wee\Layout.h" />
+    <ClInclude Include="..\wee\wee\lib.h" />
+    <ClInclude Include="..\wee\wee\ListView.h" />
+    <ClInclude Include="..\wee\wee\Menu.h" />
+    <ClInclude Include="..\wee\wee\NativeControl.h" />
+    <ClInclude Include="..\wee\wee\path.h" />
+    <ClInclude Include="..\wee\wee\StatusBar.h" />
+    <ClInclude Include="..\wee\wee\str.h" />
+    <ClInclude Include="..\wee\wee\vec.h" />
+    <ClInclude Include="..\wee\wee\VersionInfo.h" />
+    <ClInclude Include="..\wee\wee\Window.h" />
     <ClInclude Include="res\resource.h" />
     <ClInclude Include="src\DlgMain.h" />
     <ClInclude Include="src\patch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lib\CheckRadio.cpp" />
-    <ClCompile Include="lib\Com.cpp" />
-    <ClCompile Include="lib\ComboBox.cpp" />
-    <ClCompile Include="lib\CustomControl.cpp" />
-    <ClCompile Include="lib\Dialog.cpp" />
-    <ClCompile Include="lib\DialogMain.cpp" />
-    <ClCompile Include="lib\DialogModal.cpp" />
-    <ClCompile Include="lib\dpi.cpp" />
-    <ClCompile Include="lib\enc.cpp" />
-    <ClCompile Include="lib\File.cpp" />
-    <ClCompile Include="lib\FileMapped.cpp" />
-    <ClCompile Include="lib\ini.cpp" />
-    <ClCompile Include="lib\ListView.cpp" />
-    <ClCompile Include="lib\Menu.cpp" />
-    <ClCompile Include="lib\NativeControl.cpp" />
-    <ClCompile Include="lib\path.cpp" />
-    <ClCompile Include="lib\StatusBar.cpp" />
-    <ClCompile Include="lib\str.cpp" />
-    <ClCompile Include="lib\VersionInfo.cpp" />
-    <ClCompile Include="lib\Window.cpp" />
+    <ClCompile Include="..\wee\wee\CheckRadio.cpp" />
+    <ClCompile Include="..\wee\wee\Com.cpp" />
+    <ClCompile Include="..\wee\wee\ComboBox.cpp" />
+    <ClCompile Include="..\wee\wee\CustomControl.cpp" />
+    <ClCompile Include="..\wee\wee\Dialog.cpp" />
+    <ClCompile Include="..\wee\wee\DialogMain.cpp" />
+    <ClCompile Include="..\wee\wee\DialogModal.cpp" />
+    <ClCompile Include="..\wee\wee\dpi.cpp" />
+    <ClCompile Include="..\wee\wee\enc.cpp" />
+    <ClCompile Include="..\wee\wee\File.cpp" />
+    <ClCompile Include="..\wee\wee\FileMapped.cpp" />
+    <ClCompile Include="..\wee\wee\ImgList.cpp" />
+    <ClCompile Include="..\wee\wee\ini.cpp" />
+    <ClCompile Include="..\wee\wee\Layout.cpp" />
+    <ClCompile Include="..\wee\wee\ListView.cpp" />
+    <ClCompile Include="..\wee\wee\Menu.cpp" />
+    <ClCompile Include="..\wee\wee\NativeControl.cpp" />
+    <ClCompile Include="..\wee\wee\path.cpp" />
+    <ClCompile Include="..\wee\wee\StatusBar.cpp" />
+    <ClCompile Include="..\wee\wee\str.cpp" />
+    <ClCompile Include="..\wee\wee\VersionInfo.cpp" />
+    <ClCompile Include="..\wee\wee\Window.cpp" />
     <ClCompile Include="src\DlgMain.cpp" />
     <ClCompile Include="src\patch.cpp" />
   </ItemGroup>

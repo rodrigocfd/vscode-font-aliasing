@@ -13,76 +13,13 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Library Files">
-      <UniqueIdentifier>{3ba802ae-16f2-4e6c-9918-1ca5d2407816}</UniqueIdentifier>
+    <Filter Include="Wee">
+      <UniqueIdentifier>{2b5ca0c4-c66f-40d9-9167-552b69c2285e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DlgMain.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\ini.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\lib.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\ListView.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Menu.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\NativeControl.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\path.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\StatusBar.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\str.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\vec.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Window.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\CheckRadio.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Com.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\ComboBox.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\CustomControl.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\Dialog.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\DialogMain.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\DialogModal.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\dpi.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\enc.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\File.h">
-      <Filter>Library Files</Filter>
-    </ClInclude>
-    <ClInclude Include="lib\FileMapped.h">
-      <Filter>Library Files</Filter>
     </ClInclude>
     <ClInclude Include="res\resource.h">
       <Filter>Resource Files</Filter>
@@ -90,76 +27,151 @@
     <ClInclude Include="src\patch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\VersionInfo.h">
-      <Filter>Library Files</Filter>
+    <ClInclude Include="..\wee\wee\str.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\vec.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\VersionInfo.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Window.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\CheckRadio.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Com.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\ComboBox.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\CustomControl.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Dialog.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\DialogMain.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\DialogModal.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\dpi.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\enc.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\File.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\FileMapped.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\ImgList.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\ini.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Layout.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\lib.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\ListView.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Menu.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\NativeControl.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\path.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\StatusBar.h">
+      <Filter>Wee</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DlgMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\CheckRadio.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Com.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\ComboBox.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\CustomControl.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Dialog.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\DialogMain.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\DialogModal.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\dpi.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\enc.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\File.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\FileMapped.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\ini.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\ListView.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Menu.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\NativeControl.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\path.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\StatusBar.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\str.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\Window.cpp">
-      <Filter>Library Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\patch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\VersionInfo.cpp">
-      <Filter>Library Files</Filter>
+    <ClCompile Include="..\wee\wee\CheckRadio.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Com.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ComboBox.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\CustomControl.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Dialog.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\DialogMain.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\DialogModal.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\dpi.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\enc.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\File.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\FileMapped.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ImgList.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ini.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Layout.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ListView.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Menu.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\NativeControl.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\path.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\StatusBar.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\str.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\VersionInfo.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Window.cpp">
+      <Filter>Wee</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@
 #include <Windows.h>
 #include <CommCtrl.h>
 #include <TlHelp32.h>
-#include "../lib/lib.h"
+#include <wee/lib.h>
 #include "patch.h"
 
 bool patch::isVscodeRunning()

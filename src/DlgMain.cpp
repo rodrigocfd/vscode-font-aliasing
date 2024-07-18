@@ -47,7 +47,7 @@ INT_PTR DlgMain::onChkChange()
 
 INT_PTR DlgMain::onBtnBrowse()
 {
-	std::optional<std::wstring> maybeFolder = this->showOpenFolder();
+	std::optional<std::wstring> maybeFolder = this->sys.openFolder();
 	if (maybeFolder.has_value()) {
 		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
 		lib::NativeControl{this, BTN_PATCH}.focus();
@@ -59,13 +59,13 @@ INT_PTR DlgMain::onBtnPatch()
 {
 	std::wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
 	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
-		this->msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		this->sys.msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
 		lib::NativeControl{this, BTN_BROWSE}.focus();
 		return TRUE;
 	}
 
 	if (patch::isVscodeRunning()
-			&& this->msgBox(L"VS Code appears to be running", L"",
+			&& this->sys.msgBox(L"VS Code appears to be running", L"",
 				L"It's recommended to close VS Code before patching.\n"
 				L"If you run the patch now, you must reload VS Code.\n\n"
 				L"Patch anyway?",
@@ -77,9 +77,9 @@ INT_PTR DlgMain::onBtnPatch()
 		patch::Res res = patch::doPatch(installPath,
 			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
 			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
-		this->msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
+		this->sys.msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
 	} catch (const std::runtime_error& err) {
-		this->msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		this->sys.msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}
 	return TRUE;
 }
