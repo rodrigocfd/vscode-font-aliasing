@@ -27,18 +27,6 @@
     <ClInclude Include="src\patch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\str.h">
-      <Filter>Wee</Filter>
-    </ClInclude>
-    <ClInclude Include="..\wee\wee\vec.h">
-      <Filter>Wee</Filter>
-    </ClInclude>
-    <ClInclude Include="..\wee\wee\VersionInfo.h">
-      <Filter>Wee</Filter>
-    </ClInclude>
-    <ClInclude Include="..\wee\wee\Window.h">
-      <Filter>Wee</Filter>
-    </ClInclude>
     <ClInclude Include="..\wee\wee\CheckRadio.h">
       <Filter>Wee</Filter>
     </ClInclude>
@@ -96,7 +84,22 @@
     <ClInclude Include="..\wee\wee\path.h">
       <Filter>Wee</Filter>
     </ClInclude>
+    <ClInclude Include="..\wee\wee\ProgressBar.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
     <ClInclude Include="..\wee\wee\StatusBar.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\str.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\vec.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\VersionInfo.h">
+      <Filter>Wee</Filter>
+    </ClInclude>
+    <ClInclude Include="..\wee\wee\Window.h">
       <Filter>Wee</Filter>
     </ClInclude>
   </ItemGroup>
@@ -106,6 +109,45 @@
     </ClCompile>
     <ClCompile Include="src\patch.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\FileMapped.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ImgList.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ini.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Layout.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ListView.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Menu.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\NativeControl.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\path.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\ProgressBar.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\StatusBar.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\str.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\VersionInfo.cpp">
+      <Filter>Wee</Filter>
+    </ClCompile>
+    <ClCompile Include="..\wee\wee\Window.cpp">
+      <Filter>Wee</Filter>
     </ClCompile>
     <ClCompile Include="..\wee\wee\CheckRadio.cpp">
       <Filter>Wee</Filter>
@@ -135,42 +177,6 @@
       <Filter>Wee</Filter>
     </ClCompile>
     <ClCompile Include="..\wee\wee\File.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\FileMapped.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\ImgList.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\ini.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\Layout.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\ListView.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\Menu.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\NativeControl.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\path.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\StatusBar.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\str.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\VersionInfo.cpp">
-      <Filter>Wee</Filter>
-    </ClCompile>
-    <ClCompile Include="..\wee\wee\Window.cpp">
       <Filter>Wee</Filter>
     </ClCompile>
   </ItemGroup>

@@ -30,9 +30,8 @@ bool patch::isVscodeRunning()
 	}
 
 	for (;;) {
-		if (!lstrcmpiW(pe.szExeFile, L"Code.exe")) {
+		if (lib::str::eqI(pe.szExeFile, L"Code.exe")) // process is running
 			return true;
-		}
 
 		if (!Process32NextW(h.h32, &pe)) {
 			DWORD err = GetLastError();

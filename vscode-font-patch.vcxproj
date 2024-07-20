@@ -178,6 +178,7 @@
     <ClInclude Include="..\wee\wee\Menu.h" />
     <ClInclude Include="..\wee\wee\NativeControl.h" />
     <ClInclude Include="..\wee\wee\path.h" />
+    <ClInclude Include="..\wee\wee\ProgressBar.h" />
     <ClInclude Include="..\wee\wee\StatusBar.h" />
     <ClInclude Include="..\wee\wee\str.h" />
     <ClInclude Include="..\wee\wee\vec.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="..\wee\wee\Menu.cpp" />
     <ClCompile Include="..\wee\wee\NativeControl.cpp" />
     <ClCompile Include="..\wee\wee\path.cpp" />
+    <ClCompile Include="..\wee\wee\ProgressBar.cpp" />
     <ClCompile Include="..\wee\wee\StatusBar.cpp" />
     <ClCompile Include="..\wee\wee\str.cpp" />
     <ClCompile Include="..\wee\wee\VersionInfo.cpp" />
