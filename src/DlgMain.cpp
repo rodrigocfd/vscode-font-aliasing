@@ -8,7 +8,7 @@
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
 {
 	DlgMain d;
-	return d.runMain(hInst, DLG_MAIN, cmdShow, ICO_VSCGREEN);
+	return d.runMain(hInst, DLG_MAIN, cmdShow, ICO_VSCGREEN, ACC_MAIN);
 }
 
 INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
@@ -21,6 +21,7 @@ INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
 				case CHK_PATCH_ICON: return onChkChange();
 				case BTN_BROWSE:     return onBtnBrowse();
 				case BTN_PATCH:      return onBtnPatch();
+				case MNU_ABOUT:      return onAbout();
 				case IDCANCEL:       PostMessage(hWnd(), WM_CLOSE, 0, 0); return TRUE;
 				default:             return FALSE;
 			}
@@ -81,5 +82,16 @@ INT_PTR DlgMain::onBtnPatch()
 	} catch (const std::runtime_error& err) {
 		this->sys.msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}
+	return TRUE;
+}
+
+INT_PTR DlgMain::onAbout()
+{
+	lib::VersionInfo vi;
+	std::wstring_view productName = vi.strInfo(vi.langsCps()[0], L"ProductName");
+	std::array<WORD, 4> ver = vi.verNum();
+	auto body = lib::str::fmt(L"Version %u.%u.%u.\nWritten in C++20.", ver[0], ver[1], ver[2]);
+
+	this->sys.msgBox(L"About", productName, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
 	return TRUE;
 }

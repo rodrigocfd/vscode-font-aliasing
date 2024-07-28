@@ -17,4 +17,5 @@ private:
 	INT_PTR onChkChange();
 	INT_PTR onBtnBrowse();
 	INT_PTR onBtnPatch();
+	INT_PTR onAbout();
 };
