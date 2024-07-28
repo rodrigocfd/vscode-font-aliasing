@@ -167,7 +167,6 @@
     <ClInclude Include="..\windlg\windlg\DialogMain.h" />
     <ClInclude Include="..\windlg\windlg\DialogModal.h" />
     <ClInclude Include="..\windlg\windlg\dpi.h" />
-    <ClInclude Include="..\windlg\windlg\enc.h" />
     <ClInclude Include="..\windlg\windlg\File.h" />
     <ClInclude Include="..\windlg\windlg\FileMapped.h" />
     <ClInclude Include="..\windlg\windlg\ImgList.h" />
@@ -197,7 +196,6 @@
     <ClCompile Include="..\windlg\windlg\DialogMain.cpp" />
     <ClCompile Include="..\windlg\windlg\DialogModal.cpp" />
     <ClCompile Include="..\windlg\windlg\dpi.cpp" />
-    <ClCompile Include="..\windlg\windlg\enc.cpp" />
     <ClCompile Include="..\windlg\windlg\File.cpp" />
     <ClCompile Include="..\windlg\windlg\FileMapped.cpp" />
     <ClCompile Include="..\windlg\windlg\ImgList.cpp" />

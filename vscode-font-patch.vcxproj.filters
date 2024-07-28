@@ -84,9 +84,6 @@
     <ClInclude Include="..\windlg\windlg\dpi.h">
       <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\windlg\windlg\enc.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
     <ClInclude Include="..\windlg\windlg\File.h">
       <Filter>WinDlg</Filter>
     </ClInclude>
@@ -132,9 +129,6 @@
       <Filter>WinDlg</Filter>
     </ClCompile>
     <ClCompile Include="..\windlg\windlg\dpi.cpp">
-      <Filter>WinDlg</Filter>
-    </ClCompile>
-    <ClCompile Include="..\windlg\windlg\enc.cpp">
       <Filter>WinDlg</Filter>
     </ClCompile>
     <ClCompile Include="..\windlg\windlg\File.cpp">
