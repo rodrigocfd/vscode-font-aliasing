@@ -13,8 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Wee">
-      <UniqueIdentifier>{2b5ca0c4-c66f-40d9-9167-552b69c2285e}</UniqueIdentifier>
+    <Filter Include="WinDlg">
+      <UniqueIdentifier>{d93a4aac-34c4-4829-b30d-bcd96d8e109f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,80 +27,80 @@
     <ClInclude Include="src\patch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\CheckRadio.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\lib.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\Com.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\ListView.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\ComboBox.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\Menu.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\CustomControl.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\NativeControl.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\Dialog.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\path.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\DialogMain.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\ProgressBar.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\DialogModal.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\StatusBar.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\dpi.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\str.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\enc.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\vec.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\File.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\VersionInfo.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\FileMapped.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\Window.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\ImgList.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\CheckRadio.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\ini.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\Com.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\Layout.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\ComboBox.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\lib.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\CustomControl.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\ListView.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\Dialog.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\Menu.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\DialogMain.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\NativeControl.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\DialogModal.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\path.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\dpi.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\ProgressBar.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\enc.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\StatusBar.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\File.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\str.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\FileMapped.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\vec.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\ImgList.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\VersionInfo.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\ini.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
-    <ClInclude Include="..\wee\wee\Window.h">
-      <Filter>Wee</Filter>
+    <ClInclude Include="..\windlg\windlg\Layout.h">
+      <Filter>WinDlg</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,74 +110,74 @@
     <ClCompile Include="src\patch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\FileMapped.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\CheckRadio.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\ImgList.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\Com.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\ini.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\ComboBox.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\Layout.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\CustomControl.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\ListView.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\Dialog.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\Menu.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\DialogMain.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\NativeControl.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\DialogModal.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\path.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\dpi.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\ProgressBar.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\enc.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\StatusBar.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\File.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\str.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\FileMapped.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\VersionInfo.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\ImgList.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\Window.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\ini.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\CheckRadio.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\Layout.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\Com.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\ListView.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\ComboBox.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\Menu.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\CustomControl.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\NativeControl.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\Dialog.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\path.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\DialogMain.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\ProgressBar.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\DialogModal.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\StatusBar.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\dpi.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\str.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\enc.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\VersionInfo.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\wee\wee\File.cpp">
-      <Filter>Wee</Filter>
+    <ClCompile Include="..\windlg\windlg\Window.cpp">
+      <Filter>WinDlg</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 #pragma once
-#include <wee/lib.h>
+#include <windlg/lib.h>
 
 class DlgMain final : public lib::DialogMain {
 public:
