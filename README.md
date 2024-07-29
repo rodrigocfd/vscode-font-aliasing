@@ -5,8 +5,6 @@ A command line utility to patch a Visual Studio Code installation on **Windows**
 - slightly enhances the font rendering;
 - fixes the autocomplete icon color ([ref](https://stackoverflow.com/q/68321114/6923555)).
 
-Written in C++20 with [WinDlg](https://github.com/rodrigocfd/windlg).
-
 ## Usage
 
 Close VSCode and run the application.
@@ -26,6 +24,10 @@ To revert the patch, simply run VS Code installer again.
 * Using Source Code Pro font (original vs. patched)
 
 ![Diff Source Code Pro](diff-sourcecodepro.png)
+
+## Dependencies
+
+This project is written in C++20 and uses [WinDlg](https://github.com/rodrigocfd/windlg) library, assuming it's in a parallel directory.
 
 ## License
 
