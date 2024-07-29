@@ -8,7 +8,7 @@
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
 {
 	DlgMain d;
-	return d.runMain(hInst, DLG_MAIN, cmdShow, ICO_VSCGREEN, ACC_MAIN);
+	return lib::runMain(d, hInst, DLG_MAIN, cmdShow, ICO_VSCGREEN, ACC_MAIN);
 }
 
 INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
@@ -48,7 +48,7 @@ INT_PTR DlgMain::onChkChange()
 
 INT_PTR DlgMain::onBtnBrowse()
 {
-	std::optional<std::wstring> maybeFolder = this->sys.openFolder();
+	std::optional<std::wstring> maybeFolder = dlg.showOpenFolder();
 	if (maybeFolder.has_value()) {
 		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
 		lib::NativeControl{this, BTN_PATCH}.focus();
@@ -60,13 +60,13 @@ INT_PTR DlgMain::onBtnPatch()
 {
 	std::wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
 	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
-		this->sys.msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		dlg.msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
 		lib::NativeControl{this, BTN_BROWSE}.focus();
 		return TRUE;
 	}
 
 	if (patch::isVscodeRunning()
-			&& this->sys.msgBox(L"VS Code appears to be running", L"",
+			&& dlg.msgBox(L"VS Code appears to be running", L"",
 				L"It's recommended to close VS Code before patching.\n"
 				L"If you run the patch now, you must reload VS Code.\n\n"
 				L"Patch anyway?",
@@ -78,9 +78,9 @@ INT_PTR DlgMain::onBtnPatch()
 		patch::Res res = patch::doPatch(installPath,
 			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
 			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
-		this->sys.msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
+		dlg.msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
 	} catch (const std::runtime_error& err) {
-		this->sys.msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		dlg.msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}
 	return TRUE;
 }
@@ -91,7 +91,7 @@ INT_PTR DlgMain::onAbout()
 	std::wstring_view productName = vi.strInfo(vi.langsCps()[0], L"ProductName");
 	std::array<WORD, 4> ver = vi.verNum();
 	auto body = lib::str::fmt(L"Version %u.%u.%u.\nWritten in C++20.", ver[0], ver[1], ver[2]);
-
-	this->sys.msgBox(L"About", productName, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
+	
+	dlg.msgBox(L"About", productName, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
 	return TRUE;
 }
