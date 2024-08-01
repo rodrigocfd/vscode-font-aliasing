@@ -22,12 +22,12 @@ INT_PTR DlgMain::dlgProc(UINT uMsg, WPARAM wp, LPARAM lp)
 				case BTN_BROWSE:     return onBtnBrowse();
 				case BTN_PATCH:      return onBtnPatch();
 				case MNU_ABOUT:      return onAbout();
-				case IDCANCEL:       PostMessage(hWnd(), WM_CLOSE, 0, 0); return TRUE;
+				case IDCANCEL:       PostMessageW(hWnd(), WM_CLOSE, 0, 0); return TRUE;
 				default:             return FALSE;
 			}
 		case WM_CLOSE:     DestroyWindow(hWnd()); return TRUE;
 		case WM_NCDESTROY: PostQuitMessage(0); return TRUE;
-		default: return FALSE;
+		default:           return FALSE;
 	}
 }
 
