@@ -60,13 +60,13 @@ INT_PTR DlgMain::onBtnPatch()
 {
 	std::wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
 	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
-		dlg.msgBox(L"Bad path", L"", L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		dlg.msgBox(L"Bad path", {}, L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
 		lib::NativeControl{this, BTN_BROWSE}.focus();
 		return TRUE;
 	}
 
 	if (patch::isVscodeRunning()
-			&& dlg.msgBox(L"VS Code appears to be running", L"",
+			&& dlg.msgBox(L"VS Code appears to be running", {},
 				L"It's recommended to close VS Code before patching.\n"
 				L"If you run the patch now, you must reload VS Code.\n\n"
 				L"Patch anyway?",
@@ -78,9 +78,9 @@ INT_PTR DlgMain::onBtnPatch()
 		patch::Res res = patch::doPatch(installPath,
 			lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked(),
 			lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
-		dlg.msgBox(L"Patching finished", L"", res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
+		dlg.msgBox(L"Patching finished", {}, res.fontMsg + L"\n" + res.iconMsg, TDCBF_OK_BUTTON, res.tdIcon);
 	} catch (const std::runtime_error& err) {
-		dlg.msgBox(L"Patching failed", L"", lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
+		dlg.msgBox(L"Patching failed", {}, lib::str::toWide(err.what()), TDCBF_OK_BUTTON, TD_ERROR_ICON);
 	}
 	return TRUE;
 }
@@ -92,6 +92,6 @@ INT_PTR DlgMain::onAbout()
 	std::array<WORD, 4> ver = vi.verNum();
 	auto body = lib::str::fmt(L"Version %u.%u.%u.\nWritten in C++20.", ver[0], ver[1], ver[2]);
 	
-	dlg.msgBox(L"About", productName, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
+	dlg.msgBox(L"About", {productName}, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);
 	return TRUE;
 }
