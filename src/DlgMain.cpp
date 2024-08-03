@@ -4,6 +4,7 @@
 #include "DlgMain.h"
 #include "patch.h"
 #include "../res/resource.h"
+using std::array, std::optional, std::wstring, std::wstring_view;
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInst, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int cmdShow)
 {
@@ -48,7 +49,7 @@ INT_PTR DlgMain::onChkChange()
 
 INT_PTR DlgMain::onBtnBrowse()
 {
-	std::optional<std::wstring> maybeFolder = dlg.showOpenFolder();
+	optional<wstring> maybeFolder = dlg.showOpenFolder();
 	if (maybeFolder.has_value()) {
 		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
 		lib::NativeControl{this, BTN_PATCH}.focus();
@@ -58,7 +59,7 @@ INT_PTR DlgMain::onBtnBrowse()
 
 INT_PTR DlgMain::onBtnPatch()
 {
-	std::wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
+	wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
 	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
 		dlg.msgBox(L"Bad path", {}, L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
 		lib::NativeControl{this, BTN_BROWSE}.focus();
@@ -88,8 +89,8 @@ INT_PTR DlgMain::onBtnPatch()
 INT_PTR DlgMain::onAbout()
 {
 	lib::VersionInfo vi;
-	std::wstring_view productName = vi.strInfo(vi.langsCps()[0], L"ProductName");
-	std::array<WORD, 4> ver = vi.verNum();
+	wstring_view productName = vi.strInfo(vi.langsCps()[0], L"ProductName");
+	array<WORD, 4> ver = vi.verNum();
 	auto body = lib::str::fmt(L"Version %u.%u.%u.\nWritten in C++20.", ver[0], ver[1], ver[2]);
 	
 	dlg.msgBox(L"About", {productName}, body, TDCBF_OK_BUTTON, TD_INFORMATION_ICON);

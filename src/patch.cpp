@@ -6,6 +6,7 @@
 #include <TlHelp32.h>
 #include <windlg/lib.h>
 #include "patch.h"
+using std::optional, std::wstring, std::wstring_view;
 
 bool patch::isVscodeRunning()
 {
@@ -44,12 +45,12 @@ bool patch::isVscodeRunning()
 	}
 }
 
-static std::wstring _patchFont(std::wstring_view cssContents)
+static wstring _patchFont(wstring_view cssContents)
 {
 	LPCWSTR END_OF_COMMS = L"-*/";
 	LPCWSTR MAGIC_PATCH = L"\n*{text-shadow:transparent 0px 0px 0px, rgba(0, 0, 0, 0.5) 0px 0px 0px !important;}";
 	
-	std::optional<size_t> maybeIdxStartCode = lib::str::position(cssContents, END_OF_COMMS);
+	optional<size_t> maybeIdxStartCode = lib::str::position(cssContents, END_OF_COMMS);
 	if (!maybeIdxStartCode.has_value()) [[unlikely]] {
 		throw std::runtime_error("CSS end of comments not found.");
 	}
@@ -67,7 +68,7 @@ static std::wstring _patchFont(std::wstring_view cssContents)
 	return newContents;
 }
 
-static std::wstring _patchIcon(std::wstring_view cssContents)
+static wstring _patchIcon(wstring_view cssContents)
 {
 	LPCWSTR NATURAL = L".monaco-editor .suggest-widget .monaco-list .monaco-list-row.focused .codicon{color:var(--vscode-editorSuggestWidget-selectedIconForeground)}";
 	LPCWSTR PATCHED = L" /*.monaco-editor .suggest-widget .monaco-list .monaco-list-row.focused .codicon{color:var(--vscode-editorSuggestWidget-selectedIconForeground)}*/ ";
@@ -76,7 +77,7 @@ static std::wstring _patchIcon(std::wstring_view cssContents)
 		throw std::runtime_error("Suggestion box icon already patched.");
 	}
 
-	std::optional<size_t> maybeIdx = lib::str::position(cssContents, NATURAL);
+	optional<size_t> maybeIdx = lib::str::position(cssContents, NATURAL);
 	if (!maybeIdx.has_value()) [[unlikely]] {
 		throw std::runtime_error("Suggestion box icon CSS entry not found.");
 	}
@@ -89,16 +90,16 @@ static std::wstring _patchIcon(std::wstring_view cssContents)
 	return newContents;
 }
 
-patch::Res patch::doPatch(std::wstring_view installPath, bool doFont, bool doIcon)
+patch::Res patch::doPatch(wstring_view installPath, bool doFont, bool doIcon)
 {
-	std::wstring cssPath{installPath};
+	wstring cssPath{installPath};
 	cssPath.append(L"\\");
 	cssPath.append(L"resources\\app\\out\\vs\\workbench\\workbench.desktop.main.css");
 
 	bool fontOk = true, iconOk = true;
 	Res res = {.fontMsg = L"Font unpatched.", .iconMsg = L"Suggestion icon unpatched."};
 
-	std::wstring cssContents = lib::FileMapped::ReadAllStr(cssPath);
+	wstring cssContents = lib::FileMapped::ReadAllStr(cssPath);
 	if (doFont) {
 		try {
 			cssContents = _patchFont(cssContents);
