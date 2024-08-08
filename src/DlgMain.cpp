@@ -49,9 +49,8 @@ INT_PTR DlgMain::onChkChange()
 
 INT_PTR DlgMain::onBtnBrowse()
 {
-	optional<wstring> maybeFolder = dlg.showOpenFolder();
-	if (maybeFolder.has_value()) {
-		lib::NativeControl{this, TXT_PATH}.setText(maybeFolder.value());
+	if (optional<wstring> folder = dlg.showOpenFolder(); folder.has_value()) {
+		lib::NativeControl{this, TXT_PATH}.setText(folder.value());
 		lib::NativeControl{this, BTN_PATCH}.focus();
 	}
 	return TRUE;

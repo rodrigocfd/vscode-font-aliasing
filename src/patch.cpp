@@ -61,7 +61,7 @@ static wstring _patchFont(wstring_view cssContents)
 		throw std::runtime_error("Font already patched.");
 	}
 
-	auto newContents = lib::str::newReserved(cssContents.length() + lstrlenW(MAGIC_PATCH));
+	wstring newContents = lib::str::newReserved(cssContents.length() + lstrlenW(MAGIC_PATCH));
 	newContents.append(cssContents.begin(), cssContents.begin() + idxStartCode); // comments block
 	newContents.append(MAGIC_PATCH);
 	newContents.append(cssContents.begin() + idxStartCode, cssContents.end()); // rest of file
@@ -83,7 +83,7 @@ static wstring _patchIcon(wstring_view cssContents)
 	}
 	size_t idx = maybeIdx.value();
 
-	auto newContents = lib::str::newReserved(cssContents.length() + lstrlenW(PATCHED) - lstrlenW(NATURAL));
+	wstring newContents = lib::str::newReserved(cssContents.length() + lstrlenW(PATCHED) - lstrlenW(NATURAL));
 	newContents.append(cssContents.begin(), cssContents.begin() + idx); // all code up to part
 	newContents.append(PATCHED);
 	newContents.append(cssContents.begin() + idx + lstrlenW(NATURAL), cssContents.end()); // rest of file
