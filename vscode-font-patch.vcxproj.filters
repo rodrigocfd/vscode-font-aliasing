@@ -27,45 +27,6 @@
     <ClInclude Include="src\patch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\windlg\windlg\CheckRadio.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\Com.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\ComboBox.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\CustomControl.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\Dialog.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\DialogMain.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\DialogModal.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\dpi.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\File.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\ImgList.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\ini.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\lib.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
-    <ClInclude Include="..\windlg\windlg\ListView.h">
-      <Filter>WinDlg</Filter>
-    </ClInclude>
     <ClInclude Include="..\windlg\windlg\Menu.h">
       <Filter>WinDlg</Filter>
     </ClInclude>
@@ -96,6 +57,45 @@
     <ClInclude Include="..\windlg\windlg\Window.h">
       <Filter>WinDlg</Filter>
     </ClInclude>
+    <ClInclude Include="..\windlg\windlg\CheckRadio.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\Com.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\ComboBox.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\CustomControl.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\Dialog.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\DialogMain.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\DialogModal.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\dpi.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\File.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\ImgList.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\Ini.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\lib.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\windlg\windlg\ListView.h">
+      <Filter>WinDlg</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DlgMain.cpp">
@@ -103,9 +103,6 @@
     </ClCompile>
     <ClCompile Include="src\patch.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\windlg\windlg\Window.cpp">
-      <Filter>WinDlg</Filter>
     </ClCompile>
     <ClCompile Include="..\windlg\windlg\CheckRadio.cpp">
       <Filter>WinDlg</Filter>
@@ -137,7 +134,7 @@
     <ClCompile Include="..\windlg\windlg\ImgList.cpp">
       <Filter>WinDlg</Filter>
     </ClCompile>
-    <ClCompile Include="..\windlg\windlg\ini.cpp">
+    <ClCompile Include="..\windlg\windlg\Ini.cpp">
       <Filter>WinDlg</Filter>
     </ClCompile>
     <ClCompile Include="..\windlg\windlg\ListView.cpp">
@@ -165,6 +162,9 @@
       <Filter>WinDlg</Filter>
     </ClCompile>
     <ClCompile Include="..\windlg\windlg\VersionInfo.cpp">
+      <Filter>WinDlg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\windlg\windlg\Window.cpp">
       <Filter>WinDlg</Filter>
     </ClCompile>
   </ItemGroup>
