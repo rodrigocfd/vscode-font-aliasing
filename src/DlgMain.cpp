@@ -41,9 +41,8 @@ INT_PTR DlgMain::onInitDialog()
 
 INT_PTR DlgMain::onChkChange()
 {
-	EnableWindow(GetDlgItem(hWnd(), BTN_PATCH),
-		lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked()
-		|| lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
+	dlg.enable({BTN_PATCH},
+		lib::CheckRadio{this, CHK_PATCH_FONT}.isChecked() || lib::CheckRadio{this, CHK_PATCH_ICON}.isChecked());
 	return TRUE;
 }
 
@@ -59,7 +58,7 @@ INT_PTR DlgMain::onBtnBrowse()
 INT_PTR DlgMain::onBtnPatch()
 {
 	wstring installPath = lib::NativeControl{this, TXT_PATH}.text();
-	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) {
+	if (!lib::path::exists(installPath) || !lib::path::isDir(installPath)) [[unlikely]] {
 		dlg.msgBox(L"Bad path", {}, L"The chosen installation path is not valid.", TDCBF_OK_BUTTON, TD_ERROR_ICON);
 		lib::NativeControl{this, BTN_BROWSE}.focus();
 		return TRUE;
